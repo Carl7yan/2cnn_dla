@@ -1,0 +1,11 @@
+top_tb.sv
+
+dla_regif_ape.sv
+dla_regif_buf.sv
+dla_regif_comp.sv
+dla_regif_ddr2gb.sv
+dla_regif_gb2lb.sv
+dla_regif_glb.sv
+dla_regif_map.sv
+dla_regif_soc2gb.sv
+dla_regif.sv

@@ -1,0 +1,12 @@
+Tests
+
+Total Coverage Summary 
+SCORE  LINE   TOGGLE FSM    GROUP  
+ 98.92 100.00  96.75 --     100.00 
+
+
+Total tests in report: 1
+-------------------------------------------------------------------------------
+Data from the following tests was used to generate this report
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/simv/test 
+

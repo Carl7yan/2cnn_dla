@@ -1,0 +1,444 @@
+Group : testbench_pkg::driver_cbs_coverage::covport
+
+===============================================================================
+Group : testbench_pkg::driver_cbs_coverage::covport
+===============================================================================
+SCORE  WEIGHT GOAL   AT LEAST AUTO BIN MAX PRINT MISSING 
+100.00 1      100    1        64           64            
+
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/driver_cbs_coverage.sv
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   testbench_pkg::driver_cbs_coverage::covport
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 63       0         63      100.00  
+Crosses   48       0         48      100.00  
+
+
+Variables for Group  testbench_pkg::driver_cbs_coverage::covport
+
+
+VARIABLE                 EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST AUTO BIN MAX COMMENT 
+enable                   2        0         2       100.00  100  1      1        0                    
+kpe_ifmap                16       0         16      100.00  100  1      1        16                   
+kpe_weight               16       0         16      100.00  100  1      1        16                   
+ctrl_kpe_src0_enable     2        0         2       100.00  100  1      1        2                    
+ctrl_kpe_src1_enable     2        0         2       100.00  100  1      1        2                    
+ctrl_kpe_mul_enable      2        0         2       100.00  100  1      1        2                    
+ctrl_kpe_acc_enable      2        0         2       100.00  100  1      1        2                    
+ctrl_kpe_acc_rst         2        0         2       100.00  100  1      1        2                    
+ctrl_kpe_bypass          2        0         2       100.00  100  1      1        0                    
+stgr_precision_kpe_shift 13       0         13      100.00  100  1      1        0                    
+stgr_precision_ifmap     2        0         2       100.00  100  1      1        0                    
+stgr_precision_weight    2        0         2       100.00  100  1      1        0                    
+
+
+Crosses for Group  testbench_pkg::driver_cbs_coverage::covport
+
+
+CROSS        EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT AT LEAST PRINT MISSING COMMENT 
+covport_cc   4        0         4       100.00  100  1      1        0                     
+covport_cc_0 22       0         22      100.00  100  1      1        0                     
+covport_cc_1 22       0         22      100.00  100  1      1        0                     
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable enable
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for enable
+
+
+Bins
+
+NAME     COUNT   AT LEAST 
+enable_0 1800    1        
+enable_1 4141800 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable kpe_ifmap
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 16       0         16      100.00  
+
+
+Automatically Generated Bins for kpe_ifmap
+
+
+Bins
+
+NAME              COUNT   AT LEAST 
+auto[0:4095]      1252382 1        
+auto[4096:8191]   192987  1        
+auto[8192:12287]  193179  1        
+auto[12288:16383] 192478  1        
+auto[16384:20479] 193145  1        
+auto[20480:24575] 192086  1        
+auto[24576:28671] 191994  1        
+auto[28672:32767] 193005  1        
+auto[32768:36863] 193028  1        
+auto[36864:40959] 192451  1        
+auto[40960:45055] 193201  1        
+auto[45056:49151] 192553  1        
+auto[49152:53247] 192900  1        
+auto[53248:57343] 193159  1        
+auto[57344:61439] 192414  1        
+auto[61440:65535] 192638  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable kpe_weight
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 16       0         16      100.00  
+
+
+Automatically Generated Bins for kpe_weight
+
+
+Bins
+
+NAME              COUNT   AT LEAST 
+auto[0:4095]      1804532 1        
+auto[4096:8191]   114310  1        
+auto[8192:12287]  113647  1        
+auto[12288:16383] 114553  1        
+auto[16384:20479] 114160  1        
+auto[20480:24575] 113196  1        
+auto[24576:28671] 114027  1        
+auto[28672:32767] 114077  1        
+auto[32768:36863] 113105  1        
+auto[36864:40959] 114110  1        
+auto[40960:45055] 113521  1        
+auto[45056:49151] 114052  1        
+auto[49152:53247] 114298  1        
+auto[53248:57343] 113618  1        
+auto[57344:61439] 113336  1        
+auto[61440:65535] 745058  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ctrl_kpe_src0_enable
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        0         2       100.00  
+
+
+Automatically Generated Bins for ctrl_kpe_src0_enable
+
+
+Bins
+
+NAME    COUNT   AT LEAST 
+auto[0] 921243  1        
+auto[1] 3222357 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ctrl_kpe_src1_enable
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        0         2       100.00  
+
+
+Automatically Generated Bins for ctrl_kpe_src1_enable
+
+
+Bins
+
+NAME    COUNT   AT LEAST 
+auto[0] 921343  1        
+auto[1] 3222257 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ctrl_kpe_mul_enable
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        0         2       100.00  
+
+
+Automatically Generated Bins for ctrl_kpe_mul_enable
+
+
+Bins
+
+NAME    COUNT   AT LEAST 
+auto[0] 921319  1        
+auto[1] 3222281 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ctrl_kpe_acc_enable
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        0         2       100.00  
+
+
+Automatically Generated Bins for ctrl_kpe_acc_enable
+
+
+Bins
+
+NAME    COUNT   AT LEAST 
+auto[0] 921305  1        
+auto[1] 3222295 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ctrl_kpe_acc_rst
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 2        0         2       100.00  
+
+
+Automatically Generated Bins for ctrl_kpe_acc_rst
+
+
+Bins
+
+NAME    COUNT   AT LEAST 
+auto[0] 3912577 1        
+auto[1] 231023  1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable ctrl_kpe_bypass
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for ctrl_kpe_bypass
+
+
+Bins
+
+NAME              COUNT   AT LEAST 
+ctrl_kpe_bypass_0 4140882 1        
+ctrl_kpe_bypass_1 2718    1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stgr_precision_kpe_shift
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 13       0         13      100.00  
+
+
+User Defined Bins for stgr_precision_kpe_shift
+
+
+Bins
+
+NAME                       COUNT  AT LEAST 
+stgr_precision_kpe_shift_0 360144 1        
+stgr_precision_kpe_shift_1 360144 1        
+stgr_precision_kpe_shift_2 360054 1        
+stgr_precision_kpe_shift_3 360126 1        
+stgr_precision_kpe_shift_4 540108 1        
+stgr_precision_kpe_shift_5 360126 1        
+stgr_precision_kpe_shift_6 360108 1        
+stgr_precision_kpe_shift_7 360234 1        
+stgr_precision_kpe_shift_8 360054 1        
+stgr_precision_kpe_shift_9 180090 1        
+stgr_precision_kpe_shift_a 180144 1        
+stgr_precision_kpe_shift_b 180090 1        
+stgr_precision_kpe_shift_c 180108 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stgr_precision_ifmap
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for stgr_precision_ifmap
+
+
+Bins
+
+NAME                                    COUNT   AT LEAST 
+stgr_precision_ifmap_PRECISION_IFMAP_16 2341008 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  1802592 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable stgr_precision_weight
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 2        0         2       100.00  
+
+
+User Defined Bins for stgr_precision_weight
+
+
+Bins
+
+NAME                                      COUNT   AT LEAST 
+stgr_precision_weight_PRECISION_WEIGHT_16 2340396 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  1802142 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross covport_cc
+
+
+Samples crossed: stgr_precision_ifmap stgr_precision_weight
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 4        0         4       100.00          
+
+
+Automatically Generated Cross Bins for covport_cc
+
+
+Bins
+
+stgr_precision_ifmap                    stgr_precision_weight                     COUNT   AT LEAST 
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_weight_PRECISION_WEIGHT_16 2340216 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_weight_PRECISION_WEIGHT_8  126     1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_weight_PRECISION_WEIGHT_16 180     1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_weight_PRECISION_WEIGHT_8  1802016 1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross covport_cc_0
+
+
+Samples crossed: stgr_precision_ifmap stgr_precision_kpe_shift
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              22       0         22      100.00          
+Automatically Generated Cross Bins 22       0         22      100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for covport_cc_0
+
+
+Bins
+
+stgr_precision_ifmap                    stgr_precision_kpe_shift   COUNT  AT LEAST 
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_0 180090 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_1 180090 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_4 180072 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_5 180054 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_a 180090 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_c 180090 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_6 180072 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_7 180126 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_9 180054 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_8 180054 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_b 180036 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_3 180018 1        
+stgr_precision_ifmap_PRECISION_IFMAP_16 stgr_precision_kpe_shift_2 180054 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_1 180054 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_0 180054 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_5 180072 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_4 360036 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_6 180036 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_7 180108 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_8 180000 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_2 180000 1        
+stgr_precision_ifmap_PRECISION_IFMAP_8  stgr_precision_kpe_shift_3 180108 1        
+
+
+User Defined Cross Bins for covport_cc_0
+
+
+Excluded/Illegal bins
+
+NAME COUNT STATUS   
+l1   0     Excluded 
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross covport_cc_1
+
+
+Samples crossed: stgr_precision_weight stgr_precision_kpe_shift
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              22       0         22      100.00          
+Automatically Generated Cross Bins 22       0         22      100.00          
+User Defined Cross Bins            0        0         0                       
+
+
+Automatically Generated Cross Bins for covport_cc_1
+
+
+Bins
+
+stgr_precision_weight                     stgr_precision_kpe_shift   COUNT  AT LEAST 
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_1 180000 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_0 180036 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_5 180072 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_a 180018 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_4 180054 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_8 180000 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_7 180036 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_9 180036 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_6 180018 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_b 180018 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_c 180054 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_3 180000 1        
+stgr_precision_weight_PRECISION_WEIGHT_16 stgr_precision_kpe_shift_2 180018 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_0 180054 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_1 180018 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_5 180000 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_4 360000 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_7 180072 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_6 180036 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_8 180000 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_2 180000 1        
+stgr_precision_weight_PRECISION_WEIGHT_8  stgr_precision_kpe_shift_3 180018 1        
+
+
+User Defined Cross Bins for covport_cc_1
+
+
+Excluded/Illegal bins
+
+NAME COUNT STATUS   
+l2   0     Excluded 
+
+

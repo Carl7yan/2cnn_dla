@@ -1,0 +1,27 @@
+Design Hierarchy
+
+
+----------------
+SCORE  LINE   TOGGLE FSM           
+ 98.38 100.00  96.75 --     top_tb 
+  
+  ----------------
+  SCORE  LINE   TOGGLE FSM             
+   98.28 100.00  96.57 --     dla_kpe1 
+    
+    ----------------
+    SCORE  LINE   TOGGLE FSM               
+    100.00 100.00 100.00 --     kpe_acc    
+    100.00 100.00 100.00 --     kpe_acc_r  
+     92.86 100.00  85.71 --     kpe_mul    
+    100.00 100.00 100.00 --     kpe_mul_rs 
+      
+      ----------------
+      SCORE  LINE   TOGGLE FSM              
+      100.00 100.00 100.00 --     kpe_mul_r 
+  
+  ----------------
+  SCORE  LINE   TOGGLE FSM            
+   98.96 --      98.96 --     ini_if2 
+  100.00 --     100.00 --     mon_if2 
+

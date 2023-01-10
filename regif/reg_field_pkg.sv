@@ -1,0 +1,61 @@
+`ifndef REG_FIELD_PKG__SV
+`define REG_FIELD_PKG__SV
+
+
+
+package  reg_field_pkg;
+    import uvm_pkg::*;
+
+    `include "APE_CTRL.sv"
+    `include "APE_DEST.sv"
+    `include "APE_IMM.sv"
+    `include "APE_SRC.sv"
+    `include "BUF_MASK0.sv"
+    `include "BUF_MASK1.sv"
+    `include "BUF_MASK2.sv"
+    `include "BUF_MASK3.sv"
+    `include "BUF_MASK4.sv"
+    `include "BUF_MASK5.sv"
+    `include "BUF_MASK6.sv"
+    `include "BUF_MASK7.sv"
+    `include "BUF_MASKX.sv"
+    `include "COMP_CTRL.sv"
+    `include "CONV_FMAP.sv"
+    `include "CONV_K_LOAD.sv"
+    `include "CONV_K_SiZE0.sv"
+    `include "CONV_K_SIZE1.sv"
+    `include "CONV_PAD_NUM.sv"
+    `include "CONV_PAD_SIZE.sv"
+    `include "CONV_STRIDE.sv"
+    `include "ddr2gb.sv"
+    `include "FC_SRC.sv"
+    `include "GB2LB_DEST.sv"
+    `include "GB2LB_SRC0.sv"
+    `include "GB2LB_SRC1.sv"
+    `include "GLB_ENABLE_COL.sv"
+    `include "GLB_ENABLE_ROW.sv"
+    `include "GLB_INTR.sv"
+    `include "LPE_DEST0.sv"
+    `include "LPE_DEST1.sv"
+    `include "LPE_LEAP0.sv"
+    `include "LPE_LEAP1.sv"
+    `include "LPE_LEAP2.sv"
+    `include "LPE_LEAP3.sv"
+    `include "LPE_LEAP4.sv"
+    `include "LPE_LEAP5.sv"
+    `include "LPE_LEAP6.sv"
+    `include "LPE_LEAP7.sv"
+    `include "LPE_MODE.sv"
+    `include "LPE_SRC0.sv"
+    `include "LPE_SRC1.sv"
+    `include "PRECISION.sv"
+    `include "RESHAPE_SRC0.sv"
+    `include "RESHAPE_SRC1.sv"
+    `include "SOC2GB_CONFIG.sv"
+    `include "WBLOAD_CHANNEL.sv"
+    `include "WBLOAD_DDR_ADDR0.sv"
+    `include "WBLOAD_DDR_ADDR1.sv"
+    `include "WBLOAD_KERNEL.sv"
+endpackage
+`endif 
+//all files above is in the directory which path is /home/fguo/Documents/tj3-develop-rtl/test_reg_model/reg_model/uvm_reg.

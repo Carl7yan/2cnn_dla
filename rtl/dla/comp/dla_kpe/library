@@ -1,0 +1,3 @@
+library lib1  /home/fguo/Documents/tj3-develop-rtl/rtl/dla/comp/dla_kpe_mul/dla_kpe_mul.sv,
+                /home/fguo/Documents/tj3-develop-rtl/rtl/dla/comp/dla_kpe_mul_round/dla_kpe_mul_round.sv,
+              /home/fguo/Documents/tj3-develop-rtl/rtl/dla/comp/dla_kpe_acc/dla_kpe_acc.sv;

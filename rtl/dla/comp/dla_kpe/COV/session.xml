@@ -1,0 +1,32 @@
+<session version="1.1" release="O-2018.09-SP2" timestp="2023-01-10 08:41:34 GMT">
+  <info>
+    <attr name="datetime" value="Tue Jan 10 16:49:39 2023
+"/>
+    <attr name="command" value="urg -full64 -dir /home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/simv.vdb -report coverage_report -format both"/>
+    <attr name="top_instance" value="top_tb"/>
+  </info>
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Toggle" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="FSM" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Group" type="percent" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="146/146" />
+    <metric name="Toggle" value="1908/1972" />
+    <metric name="Group" value="100%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="testbench_pkg::driver_cbs_coverage::covport">
+      <metric name="Group" value="100%" />
+    </scope>
+  </scope>
+  <scope type="assert" name="Statistics">
+  </scope>
+  </old_coverage>
+</session>

@@ -1,0 +1,1294 @@
+===============================================================================
+Module : dla_kpe_mul
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+ 92.86 100.00  85.71 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/dla_kpe_mul.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME                    
+ 92.86 100.00  85.71 --     top_tb.dla_kpe1.kpe_mul 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : dla_kpe_mul
+
+             Line No.   Total   Covered  Percent
+TOTAL                       11       11   100.00
+ALWAYS            103        5        5   100.00
+ALWAYS            113        5        5   100.00
+ALWAYS            125        1        1   100.00
+
+102                         always_comb begin
+103        1/1                  if ( stgr_precision_ifmap == PRECISION_IFMAP_16 ) begin
+104        1/1                      dsp_a = {{9{a[15]}}, a};
+105        1/1                      dsp_d = '0;
+106                             end else begin
+107        1/1                      dsp_a = {a[15], a[15:8], 16'b0};
+108        1/1                      dsp_d = {{17{a[7]}}, a[7:0]};
+109                             end
+110                         end
+111                     
+112                         always_comb begin
+113        1/1                  if ( stgr_precision_weight == PRECISION_WEIGHT_16 ) begin
+114        1/1                      dsp_b = b;
+115        1/1                      dsp_c = '0;
+116                             end else begin
+117        1/1                      dsp_b = {{8{b[7]}}, b[7:0]};
+118        1/1                      dsp_c = (a[7] ^~ b[7]) ? 32'h00000000 :
+119                                          ((((b == 0) && (a[7] == 1)) || ((b[7] == 1) && (a[7 : 0] == 0))) ? 
+120                                          32'h0000_0000 : 32'h00010000);
+121                             end
+122                         end
+123                     
+124                        always_comb begin
+125        1/1                 dsp_p = (dsp_a + dsp_d) * dsp_b + dsp_c;
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : dla_kpe_mul
+                Total Covered Percent 
+Totals          10    9       90.00   
+Total Bits      434   372     85.71   
+Total Bits 0->1 217   186     85.71   
+Total Bits 1->0 217   186     85.71   
+
+                              
+Ports          5   5   100.00 
+Port Bits      154 154 100.00 
+Port Bits 0->1 77  77  100.00 
+Port Bits 1->0 77  77  100.00 
+
+                                
+Signals          5   4   80.00  
+Signal Bits      280 218 77.86  
+Signal Bits 0->1 140 109 77.86  
+Signal Bits 1->0 140 109 77.86  
+
+Port Details
+                           Toggle Toggle 1->0 Toggle 0->1 Direction 
+a[15:0]                    Yes    Yes         Yes         INPUT     
+b[15:0]                    Yes    Yes         Yes         INPUT     
+y[41:0]                    Yes    Yes         Yes         OUTPUT    
+stgr_precision_ifmap       Yes    Yes         Yes         INPUT     
+stgr_precision_weight[1:0] Yes    Yes         Yes         INPUT     
+
+Signal Details
+             Toggle Toggle 1->0 Toggle 0->1 
+dsp_a[24:0]  Yes    Yes         Yes         
+dsp_d[24:0]  Yes    Yes         Yes         
+dsp_b[15:0]  Yes    Yes         Yes         
+dsp_c[15:0]  No     No          No          
+dsp_c[16]    Yes    Yes         Yes         
+dsp_c[31:17] No     No          No          
+dsp_p[41:0]  Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dla_kpe1.kpe_mul
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+ 92.86 100.00  85.71 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+ 92.86 100.00  85.71 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME        
+ 92.86 100.00  85.71 --     dla_kpe_mul 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME     
+ 99.92 100.00  99.85 --     dla_kpe1 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : ini_if
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+ 98.96 --      98.96 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/ini_if.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME           
+ 98.96 --      98.96 --     top_tb.ini_if2 
+
+
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : ini_if
+                Total Covered Percent 
+Totals          14    13      92.86   
+Total Bits      96    95      98.96   
+Total Bits 0->1 48    48      100.00  
+Total Bits 1->0 48    47      97.92   
+
+                          
+Ports          2 2 100.00 
+Port Bits      4 4 100.00 
+Port Bits 0->1 2 2 100.00 
+Port Bits 1->0 2 2 100.00 
+
+                              
+Signals          12 11 91.67  
+Signal Bits      92 91 98.91  
+Signal Bits 0->1 46 46 100.00 
+Signal Bits 1->0 46 45 97.83  
+
+Port Details
+    Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk Yes    Yes         Yes         INPUT     
+rst Yes    Yes         Yes         INPUT     
+
+Signal Details
+                              Toggle Toggle 1->0 Toggle 0->1 
+enable                        No     No          Yes         
+kpe_ifmap[15:0]               Yes    Yes         Yes         
+kpe_weight[15:0]              Yes    Yes         Yes         
+ctrl_kpe_src0_enable          Yes    Yes         Yes         
+ctrl_kpe_src1_enable          Yes    Yes         Yes         
+ctrl_kpe_mul_enable           Yes    Yes         Yes         
+ctrl_kpe_acc_enable           Yes    Yes         Yes         
+ctrl_kpe_acc_rst              Yes    Yes         Yes         
+ctrl_kpe_bypass               Yes    Yes         Yes         
+stgr_precision_kpe_shift[3:0] Yes    Yes         Yes         
+stgr_precision_ifmap          Yes    Yes         Yes         
+stgr_precision_weight[1:0]    Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.ini_if2
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+ 98.96 --      98.96 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+ 98.96 --      98.96 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME   
+ 98.96 --      98.96 --     ini_if 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME   
+100.00 100.00 100.00 --     top_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : dla_kpe
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+ 99.92 100.00  99.85 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/dla_kpe.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME            
+ 99.92 100.00  99.85 --     top_tb.dla_kpe1 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : dla_kpe
+
+             Line No.   Total   Covered  Percent
+TOTAL                       22       22   100.00
+ALWAYS             57        4        4   100.00
+ALWAYS             62        4        4   100.00
+ALWAYS             96        4        4   100.00
+ALWAYS            111        3        3   100.00
+ALWAYS            126        4        4   100.00
+ALWAYS            140        3        3   100.00
+
+56                          always_ff @ (posedge clk or posedge rst) begin
+57         2/2                  if (rst) preg_src_f <= '0;
+58         2/2                  else if (ctrl_kpe_src0_enable) preg_src_f <= kpe_ifmap;
+                        MISSING_ELSE
+59                          end
+60                      
+61                          always_ff @ (posedge clk or posedge rst) begin
+62         2/2                  if (rst) preg_src_w <= '0;
+63         2/2                  else if (ctrl_kpe_src1_enable) preg_src_w <= kpe_weight;
+                        MISSING_ELSE
+64                          end
+65                      
+66                      `ifdef FLOW_FPGA_GENESYS2
+67                      
+68                          dla_kpe_mul kpe_mul (
+69                              .clk,
+70                              .rst,
+71                      
+72                              .a      (preg_src_f),
+73                              .b      (preg_src_w),
+74                              .y      (kpe_mul_res),
+75                      
+76                              .ctrl_kpe_mul_enable,
+77                      
+78                              .stgr_precision_ifmap,
+79                              .stgr_precision_weight
+80                          );
+81                      
+82                          assign preg_mul = kpe_mul_res[31:0];
+83                      
+84                      `else
+85                      
+86                          dla_kpe_mul kpe_mul (
+87                              .a      (preg_src_f),
+88                              .b      (preg_src_w),
+89                              .y      (kpe_mul_res),
+90                      
+91                              .stgr_precision_ifmap,
+92                              .stgr_precision_weight
+93                          );
+94                      
+95                          always_ff @ (posedge clk or posedge rst) begin
+96         2/2                  if (rst) preg_mul <= '0;
+97         2/2                  else if (ctrl_kpe_mul_enable) preg_mul <= kpe_mul_res;
+                        MISSING_ELSE
+98                          end
+99                      
+100                     `endif
+101                     
+102                         dla_kpe_mul_round kpe_mul_rs (
+103                             .pre_rs     (preg_mul),
+104                             .after_rs   (kpe_mul_shift),
+105                     
+106                             .stgr_precision_kpe_shift,
+107                             .stgr_precision_ifmap
+108                         );
+109                     
+110                         always_ff @ (posedge clk or posedge rst) begin
+111        2/2                  if (rst) preg_rs <= '0;
+112        1/1                  else preg_rs <= kpe_mul_shift;
+113                         end
+114                     
+115                         dla_kpe_acc kpe_acc (
+116                             .a      (kpe_acc_a),
+117                             .b      (kpe_acc_b),
+118                             .y      (kpe_acc_res),
+119                             .stgr_precision_ifmap
+120                         );
+121                     
+122                         assign kpe_acc_a = preg_rs;
+123                         assign kpe_acc_b = ctrl_kpe_acc_rst ? 24'b0 : preg_acc;
+124                     
+125                         always_ff @ (posedge clk or posedge rst) begin
+126        2/2                  if (rst) preg_acc <= '0;
+127        1/1                  else if (ctrl_kpe_acc_enable) begin
+128        1/1                      preg_acc <= kpe_acc_res;
+129                             end
+                        MISSING_ELSE
+130                         end
+131                     
+132                         dla_vpsignsat #(.GRAN(8), .SAT(4)) kpe_acc_r (
+133                             .a      (preg_acc),
+134                             .y      (kpe_acc_round_res),
+135                     
+136                             .mode_precision (stgr_precision_ifmap)
+137                         );
+138                     
+139                         always_comb begin
+140        2/2                  if (enable) kpe_sum = ctrl_kpe_bypass ? preg_src_f : kpe_acc_round_res;
+141        1/1                  else        kpe_sum = 16'd0;
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : dla_kpe
+                Total Covered Percent 
+Totals          26    25      96.15   
+Total Bits      660   659     99.85   
+Total Bits 0->1 330   330     100.00  
+Total Bits 1->0 330   329     99.70   
+
+                              
+Ports          15  14  93.33  
+Port Bits      128 127 99.22  
+Port Bits 0->1 64  64  100.00 
+Port Bits 1->0 64  63  98.44  
+
+                                
+Signals          11  11  100.00 
+Signal Bits      532 532 100.00 
+Signal Bits 0->1 266 266 100.00 
+Signal Bits 1->0 266 266 100.00 
+
+Port Details
+                              Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk                           Yes    Yes         Yes         INPUT     
+rst                           Yes    Yes         Yes         INPUT     
+enable                        No     No          Yes         INPUT     
+kpe_ifmap[15:0]               Yes    Yes         Yes         INPUT     
+kpe_weight[15:0]              Yes    Yes         Yes         INPUT     
+kpe_sum[15:0]                 Yes    Yes         Yes         OUTPUT    
+ctrl_kpe_src0_enable          Yes    Yes         Yes         INPUT     
+ctrl_kpe_src1_enable          Yes    Yes         Yes         INPUT     
+ctrl_kpe_mul_enable           Yes    Yes         Yes         INPUT     
+ctrl_kpe_acc_enable           Yes    Yes         Yes         INPUT     
+ctrl_kpe_acc_rst              Yes    Yes         Yes         INPUT     
+ctrl_kpe_bypass               Yes    Yes         Yes         INPUT     
+stgr_precision_kpe_shift[3:0] Yes    Yes         Yes         INPUT     
+stgr_precision_ifmap          Yes    Yes         Yes         INPUT     
+stgr_precision_weight[1:0]    Yes    Yes         Yes         INPUT     
+
+Signal Details
+                        Toggle Toggle 1->0 Toggle 0->1 
+kpe_mul_res[41:0]       Yes    Yes         Yes         
+kpe_mul_shift[23:0]     Yes    Yes         Yes         
+kpe_acc_a[23:0]         Yes    Yes         Yes         
+kpe_acc_b[23:0]         Yes    Yes         Yes         
+kpe_acc_res[23:0]       Yes    Yes         Yes         
+kpe_acc_round_res[15:0] Yes    Yes         Yes         
+preg_src_f[15:0]        Yes    Yes         Yes         
+preg_src_w[15:0]        Yes    Yes         Yes         
+preg_mul[31:0]          Yes    Yes         Yes         
+preg_rs[23:0]           Yes    Yes         Yes         
+preg_acc[23:0]          Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dla_kpe1
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+ 99.92 100.00  99.85 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+ 98.28 100.00  96.57 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME    
+ 99.92 100.00  99.85 --     dla_kpe 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME   
+100.00 100.00 100.00 --     top_tb 
+
+
+Subtrees :
+
+SCORE  LINE   TOGGLE FSM    NAME       
+100.00 100.00 100.00 --     kpe_acc    
+100.00 100.00 100.00 --     kpe_acc_r  
+ 92.86 100.00  85.71 --     kpe_mul    
+100.00 100.00 100.00 --     kpe_mul_rs 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : dla_kpe_mul_round
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/dla_kpe_mul_round.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME                       
+100.00 100.00 100.00 --     top_tb.dla_kpe1.kpe_mul_rs 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : dla_kpe_mul_round
+
+             Line No.   Total   Covered  Percent
+TOTAL                       69       69   100.00
+ALWAYS             35       65       65   100.00
+ALWAYS            152        4        4   100.00
+
+34                          always_comb begin
+35         1/1                  if (stgr_precision_ifmap == PRECISION_IFMAP_16) begin
+36         1/1                      unique case (stgr_precision_kpe_shift)
+37                                      4'd0: begin
+38         1/1                              mid_data_a = pre_rs;
+39         1/1                              carry_in = 2'b0;
+40                                      end
+41                                      4'd1: begin
+42         1/1                              mid_data_a = {pre_rs[31], pre_rs[31:1]};
+43         1/1                              carry_in = {1'b0, pre_rs[0]};
+44                                      end
+45                                      4'd2: begin
+46         1/1                              mid_data_a = {{2{pre_rs[31]}}, pre_rs[31:2]};
+47         1/1                              carry_in = {1'b0, pre_rs[1]};
+48                                      end
+49                                      4'd3: begin
+50         1/1                              mid_data_a = {{3{pre_rs[31]}}, pre_rs[31:3]};
+51         1/1                              carry_in = {1'b0, pre_rs[2]};
+52                                      end
+53                                      4'd4: begin
+54         1/1                              mid_data_a = {{4{pre_rs[31]}}, pre_rs[31:4]};
+55         1/1                              carry_in = {1'b0, pre_rs[3]};
+56                                      end
+57                                      4'd5: begin
+58         1/1                              mid_data_a = {{5{pre_rs[31]}}, pre_rs[31:5]};
+59         1/1                              carry_in = {1'b0, pre_rs[4]};
+60                                      end
+61                                      4'd6: begin
+62         1/1                              mid_data_a = {{6{pre_rs[31]}}, pre_rs[31:6]};
+63         1/1                              carry_in = {1'b0, pre_rs[5]};
+64                                      end
+65                                      4'd7: begin
+66         1/1                              mid_data_a = {{7{pre_rs[31]}}, pre_rs[31:7]};
+67         1/1                              carry_in = {1'b0, pre_rs[6]};
+68                                      end
+69                                      4'd8: begin
+70         1/1                              mid_data_a = {{8{pre_rs[31]}}, pre_rs[31:8]};
+71         1/1                              carry_in = {1'b0, pre_rs[7]};
+72                                      end
+73                                      4'd9: begin
+74         1/1                              mid_data_a = {{9{pre_rs[31]}}, pre_rs[31:9]};
+75         1/1                              carry_in = {1'b0, pre_rs[8]};
+76                                      end
+77                                      4'd10: begin
+78         1/1                              mid_data_a = {{10{pre_rs[31]}}, pre_rs[31:10]};
+79         1/1                              carry_in = {1'b0, pre_rs[9]};
+80                                      end
+81                                      4'd11: begin
+82         1/1                              mid_data_a = {{11{pre_rs[31]}}, pre_rs[31:11]};
+83         1/1                              carry_in = {1'b0, pre_rs[10]};
+84                                      end
+85                                      4'd12: begin
+86         1/1                              mid_data_a = {{12{pre_rs[31]}}, pre_rs[31:12]};
+87         1/1                              carry_in = {1'b0, pre_rs[11]};
+88                                      end
+                        MISSING_DEFAULT
+89                                  endcase
+90                              end
+91                              else begin
+92         1/1                      unique case (stgr_precision_kpe_shift)
+93                                      4'd0: begin
+94         1/1                              mid_data_a[31:16] = pre_rs[31:16];
+95         1/1                              carry_in[1] = 1'b0;
+96         1/1                              mid_data_a[15:0] = pre_rs[15:0];
+97         1/1                              carry_in[0] = 1'b0;
+98                                      end
+99                                      4'd1: begin
+100        1/1                              mid_data_a[31:16] = {pre_rs[31], pre_rs[31:17]};
+101        1/1                              carry_in[1] = pre_rs[16];
+102        1/1                              mid_data_a[15:0] = {pre_rs[15], pre_rs[15:1]};
+103        1/1                              carry_in[0] = pre_rs[0];
+104                                     end
+105                                     4'd2: begin
+106        1/1                              mid_data_a[31:16] = {{2{pre_rs[31]}}, pre_rs[31:18]};
+107        1/1                              carry_in[1] = pre_rs[17];
+108        1/1                              mid_data_a[15:0] = {{2{pre_rs[15]}}, pre_rs[15:2]};
+109        1/1                              carry_in[0] = pre_rs[1];
+110                                     end
+111                                     4'd3: begin
+112        1/1                              mid_data_a[31:16] = {{3{pre_rs[31]}}, pre_rs[31:19]};
+113        1/1                              carry_in[1] = pre_rs[18];
+114        1/1                              mid_data_a[15:0] = {{3{pre_rs[15]}}, pre_rs[15:3]};
+115        1/1                              carry_in[0] = pre_rs[2];
+116                                     end
+117                                     4'd4: begin
+118        1/1                              mid_data_a[31:16] = {{4{pre_rs[31]}}, pre_rs[31:20]};
+119        1/1                              carry_in[1] = pre_rs[19];
+120        1/1                              mid_data_a[15:0] = {{4{pre_rs[15]}}, pre_rs[15:4]};
+121        1/1                              carry_in[0] = pre_rs[3];
+122                                     end
+123                                     4'd5: begin
+124        1/1                              mid_data_a[31:16] = {{5{pre_rs[31]}}, pre_rs[31:21]};
+125        1/1                              carry_in[1] = pre_rs[20];
+126        1/1                              mid_data_a[15:0] = {{5{pre_rs[15]}}, pre_rs[15:5]};
+127        1/1                              carry_in[0] = pre_rs[4];
+128                                     end
+129                                     4'd6: begin
+130        1/1                              mid_data_a[31:16] = {{6{pre_rs[31]}}, pre_rs[31:22]};
+131        1/1                              carry_in[1] = pre_rs[21];
+132        1/1                              mid_data_a[15:0] = {{6{pre_rs[15]}}, pre_rs[15:6]};
+133        1/1                              carry_in[0] = pre_rs[5];  
+134                                     end
+135                                     4'd7: begin
+136        1/1                              mid_data_a[31:16] = {{7{pre_rs[31]}}, pre_rs[31:23]};
+137        1/1                              carry_in[1] = pre_rs[22];
+138        1/1                              mid_data_a[15:0] = {{7{pre_rs[15]}}, pre_rs[15:7]};
+139        1/1                              carry_in[0] = pre_rs[6];
+140                                     end
+141                                     4'd8: begin
+142        1/1                              mid_data_a[31:16] = {{8{pre_rs[31]}}, pre_rs[31:24]};
+143        1/1                              carry_in[1] = pre_rs[23];
+144        1/1                              mid_data_a[15:0] = {{8{pre_rs[15]}}, pre_rs[15:8]};
+145        1/1                              carry_in[0] = pre_rs[7];
+146                                     end
+                        MISSING_DEFAULT
+147                                 endcase
+148                             end
+149                         end
+150                     
+151                         always_comb begin
+152        1/1                  if ( stgr_precision_ifmap == PRECISION_IFMAP_16 ) begin
+153        1/1                      mid_data[31:0] = mid_data_a[31:0] + carry_in[0];
+154                             end else begin
+155        1/1                      mid_data[31:16] = mid_data_a[31:16] + carry_in[1];
+156        1/1                      mid_data[15:0] = mid_data_a[15:0] + carry_in[0];
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : dla_kpe_mul_round
+                Total Covered Percent 
+Totals          7     7       100.00  
+Total Bits      254   254     100.00  
+Total Bits 0->1 127   127     100.00  
+Total Bits 1->0 127   127     100.00  
+
+                              
+Ports          4   4   100.00 
+Port Bits      122 122 100.00 
+Port Bits 0->1 61  61  100.00 
+Port Bits 1->0 61  61  100.00 
+
+                                
+Signals          3   3   100.00 
+Signal Bits      132 132 100.00 
+Signal Bits 0->1 66  66  100.00 
+Signal Bits 1->0 66  66  100.00 
+
+Port Details
+                              Toggle Toggle 1->0 Toggle 0->1 Direction 
+pre_rs[31:0]                  Yes    Yes         Yes         INPUT     
+after_rs[23:0]                Yes    Yes         Yes         OUTPUT    
+stgr_precision_kpe_shift[3:0] Yes    Yes         Yes         INPUT     
+stgr_precision_ifmap          Yes    Yes         Yes         INPUT     
+
+Signal Details
+                 Toggle Toggle 1->0 Toggle 0->1 
+mid_data[31:0]   Yes    Yes         Yes         
+mid_data_a[31:0] Yes    Yes         Yes         
+carry_in[1:0]    Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dla_kpe1.kpe_mul_rs
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME              
+100.00 100.00 100.00 --     dla_kpe_mul_round 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME     
+ 99.92 100.00  99.85 --     dla_kpe1 
+
+
+Subtrees :
+
+SCORE  LINE   TOGGLE FSM    NAME      
+100.00 100.00 100.00 --     kpe_mul_r 
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : dla_vpsignsat
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/dla_vpsignsat.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME                                 
+100.00 100.00 100.00 --     top_tb.dla_kpe1.kpe_mul_rs.kpe_mul_r 
+100.00 100.00 100.00 --     top_tb.dla_kpe1.kpe_acc_r            
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : dla_vpsignsat
+
+             Line No.   Total   Covered  Percent
+TOTAL                       11       11   100.00
+ALWAYS             32       11       11   100.00
+
+31                          always_comb begin
+32         1/1                  case (mode_precision)
+33                                  PRECISION_IFMAP_16: begin
+34         1/1                          if (a[(GRAN+SAT)*2-1] ^ (& a[(GRAN+SAT)*2-2-:SAT*2])
+35                                          || a[(GRAN+SAT)*2-1] ^ (| a[(GRAN+SAT)*2-2-:SAT*2])) begin
+36         1/1                              y = {a[(GRAN+SAT)*2-1], {(GRAN*2-1){~ a[(GRAN+SAT)*2-1]}}};
+37                                      end
+38                                      else begin
+39         1/1                              y = {a[(GRAN+SAT)*2-1], a[GRAN*2-2:0]};
+40                                      end
+41                                  end
+42                                  PRECISION_IFMAP_8: begin
+43         1/1                          if (a[(GRAN+SAT)*2-1] ^ (& a[(GRAN+SAT)*2-2-:SAT])
+44                                          || a[(GRAN+SAT)*2-1] ^ (| a[(GRAN+SAT)*2-2-:SAT])) begin
+45         1/1                              y[GRAN*2-1-:GRAN] = {a[(GRAN+SAT)*2-1], {(GRAN-1){~ a[(GRAN+SAT)*2-1]}}};
+46                                      end
+47                                      else begin
+48         1/1                              y[GRAN*2-1-:GRAN] = {a[(GRAN+SAT)*2-1], a[GRAN*2+SAT-2:GRAN+SAT]};
+49                                      end
+50         1/1                          if (a[GRAN+SAT-1] ^ (& a[GRAN+SAT-2-:SAT])
+51                                          || a[GRAN+SAT-1] ^ (| a[GRAN+SAT-2-:SAT])) begin
+52         1/1                              y[GRAN-1:0] = {a[GRAN+SAT-1], {(GRAN-1){~ a[GRAN+SAT-1]}}};
+53                                      end
+54                                      else begin
+55         1/1                              y[GRAN-1:0] = {a[GRAN+SAT-1], a[GRAN-2:0]};
+56                                      end
+57                                  end
+58                                  default: begin
+59         1/1                          y = '0;
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : dla_vpsignsat ( parameter GRAN=12,SAT=4 ) 
+Toggle Coverage for Module self-instances : 
+top_tb.dla_kpe1.kpe_mul_rs.kpe_mul_r
+----------------
+SCORE  TOGGLE 
+100.00 100.00 
+
+                Total Covered Percent 
+Totals          3     3       100.00  
+Total Bits      114   114     100.00  
+Total Bits 0->1 57    57      100.00  
+Total Bits 1->0 57    57      100.00  
+
+                              
+Ports          3   3   100.00 
+Port Bits      114 114 100.00 
+Port Bits 0->1 57  57  100.00 
+Port Bits 1->0 57  57  100.00 
+
+Port Details
+               Toggle Toggle 1->0 Toggle 0->1 Direction 
+a[31:0]        Yes    Yes         Yes         INPUT     
+y[23:0]        Yes    Yes         Yes         OUTPUT    
+mode_precision Yes    Yes         Yes         INPUT     
+
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : dla_vpsignsat ( parameter GRAN=8,SAT=4 ) 
+Toggle Coverage for Module self-instances : 
+top_tb.dla_kpe1.kpe_acc_r
+----------------
+SCORE  TOGGLE 
+100.00 100.00 
+
+                Total Covered Percent 
+Totals          3     3       100.00  
+Total Bits      82    82      100.00  
+Total Bits 0->1 41    41      100.00  
+Total Bits 1->0 41    41      100.00  
+
+                            
+Ports          3  3  100.00 
+Port Bits      82 82 100.00 
+Port Bits 0->1 41 41 100.00 
+Port Bits 1->0 41 41 100.00 
+
+Port Details
+               Toggle Toggle 1->0 Toggle 0->1 Direction 
+a[23:0]        Yes    Yes         Yes         INPUT     
+y[15:0]        Yes    Yes         Yes         OUTPUT    
+mode_precision Yes    Yes         Yes         INPUT     
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dla_kpe1.kpe_mul_rs.kpe_mul_r
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME          
+100.00 100.00 100.00 --     dla_vpsignsat 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME       
+100.00 100.00 100.00 --     kpe_mul_rs 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : top_tb.dla_kpe1.kpe_mul_rs.kpe_mul_r
+
+             Line No.   Total   Covered  Percent
+TOTAL                       11       11   100.00
+ALWAYS             32       11       11   100.00
+
+31                          always_comb begin
+32         1/1                  case (mode_precision)
+33                                  PRECISION_IFMAP_16: begin
+34         1/1                          if (a[(GRAN+SAT)*2-1] ^ (& a[(GRAN+SAT)*2-2-:SAT*2])
+35                                          || a[(GRAN+SAT)*2-1] ^ (| a[(GRAN+SAT)*2-2-:SAT*2])) begin
+36         1/1                              y = {a[(GRAN+SAT)*2-1], {(GRAN*2-1){~ a[(GRAN+SAT)*2-1]}}};
+37                                      end
+38                                      else begin
+39         1/1                              y = {a[(GRAN+SAT)*2-1], a[GRAN*2-2:0]};
+40                                      end
+41                                  end
+42                                  PRECISION_IFMAP_8: begin
+43         1/1                          if (a[(GRAN+SAT)*2-1] ^ (& a[(GRAN+SAT)*2-2-:SAT])
+44                                          || a[(GRAN+SAT)*2-1] ^ (| a[(GRAN+SAT)*2-2-:SAT])) begin
+45         1/1                              y[GRAN*2-1-:GRAN] = {a[(GRAN+SAT)*2-1], {(GRAN-1){~ a[(GRAN+SAT)*2-1]}}};
+46                                      end
+47                                      else begin
+48         1/1                              y[GRAN*2-1-:GRAN] = {a[(GRAN+SAT)*2-1], a[GRAN*2+SAT-2:GRAN+SAT]};
+49                                      end
+50         1/1                          if (a[GRAN+SAT-1] ^ (& a[GRAN+SAT-2-:SAT])
+51                                          || a[GRAN+SAT-1] ^ (| a[GRAN+SAT-2-:SAT])) begin
+52         1/1                              y[GRAN-1:0] = {a[GRAN+SAT-1], {(GRAN-1){~ a[GRAN+SAT-1]}}};
+53                                      end
+54                                      else begin
+55         1/1                              y[GRAN-1:0] = {a[GRAN+SAT-1], a[GRAN-2:0]};
+56                                      end
+57                                  end
+58                                  default: begin
+59         1/1                          y = '0;
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Instance : top_tb.dla_kpe1.kpe_mul_rs.kpe_mul_r
+                Total Covered Percent 
+Totals          3     3       100.00  
+Total Bits      114   114     100.00  
+Total Bits 0->1 57    57      100.00  
+Total Bits 1->0 57    57      100.00  
+
+                              
+Ports          3   3   100.00 
+Port Bits      114 114 100.00 
+Port Bits 0->1 57  57  100.00 
+Port Bits 1->0 57  57  100.00 
+
+Port Details
+               Toggle Toggle 1->0 Toggle 0->1 Direction 
+a[31:0]        Yes    Yes         Yes         INPUT     
+y[23:0]        Yes    Yes         Yes         OUTPUT    
+mode_precision Yes    Yes         Yes         INPUT     
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dla_kpe1.kpe_acc_r
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME          
+100.00 100.00 100.00 --     dla_vpsignsat 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME     
+ 99.92 100.00  99.85 --     dla_kpe1 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Instance : top_tb.dla_kpe1.kpe_acc_r
+
+             Line No.   Total   Covered  Percent
+TOTAL                       11       11   100.00
+ALWAYS             32       11       11   100.00
+
+31                          always_comb begin
+32         1/1                  case (mode_precision)
+33                                  PRECISION_IFMAP_16: begin
+34         1/1                          if (a[(GRAN+SAT)*2-1] ^ (& a[(GRAN+SAT)*2-2-:SAT*2])
+35                                          || a[(GRAN+SAT)*2-1] ^ (| a[(GRAN+SAT)*2-2-:SAT*2])) begin
+36         1/1                              y = {a[(GRAN+SAT)*2-1], {(GRAN*2-1){~ a[(GRAN+SAT)*2-1]}}};
+37                                      end
+38                                      else begin
+39         1/1                              y = {a[(GRAN+SAT)*2-1], a[GRAN*2-2:0]};
+40                                      end
+41                                  end
+42                                  PRECISION_IFMAP_8: begin
+43         1/1                          if (a[(GRAN+SAT)*2-1] ^ (& a[(GRAN+SAT)*2-2-:SAT])
+44                                          || a[(GRAN+SAT)*2-1] ^ (| a[(GRAN+SAT)*2-2-:SAT])) begin
+45         1/1                              y[GRAN*2-1-:GRAN] = {a[(GRAN+SAT)*2-1], {(GRAN-1){~ a[(GRAN+SAT)*2-1]}}};
+46                                      end
+47                                      else begin
+48         1/1                              y[GRAN*2-1-:GRAN] = {a[(GRAN+SAT)*2-1], a[GRAN*2+SAT-2:GRAN+SAT]};
+49                                      end
+50         1/1                          if (a[GRAN+SAT-1] ^ (& a[GRAN+SAT-2-:SAT])
+51                                          || a[GRAN+SAT-1] ^ (| a[GRAN+SAT-2-:SAT])) begin
+52         1/1                              y[GRAN-1:0] = {a[GRAN+SAT-1], {(GRAN-1){~ a[GRAN+SAT-1]}}};
+53                                      end
+54                                      else begin
+55         1/1                              y[GRAN-1:0] = {a[GRAN+SAT-1], a[GRAN-2:0]};
+56                                      end
+57                                  end
+58                                  default: begin
+59         1/1                          y = '0;
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Instance : top_tb.dla_kpe1.kpe_acc_r
+                Total Covered Percent 
+Totals          3     3       100.00  
+Total Bits      82    82      100.00  
+Total Bits 0->1 41    41      100.00  
+Total Bits 1->0 41    41      100.00  
+
+                            
+Ports          3  3  100.00 
+Port Bits      82 82 100.00 
+Port Bits 0->1 41 41 100.00 
+Port Bits 1->0 41 41 100.00 
+
+Port Details
+               Toggle Toggle 1->0 Toggle 0->1 Direction 
+a[23:0]        Yes    Yes         Yes         INPUT     
+y[15:0]        Yes    Yes         Yes         OUTPUT    
+mode_precision Yes    Yes         Yes         INPUT     
+
+
+===============================================================================
+Module : mon_if
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+100.00 --     100.00 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/mon_if.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME           
+100.00 --     100.00 --     top_tb.mon_if2 
+
+
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : mon_if
+                Total Covered Percent 
+Totals          3     3       100.00  
+Total Bits      36    36      100.00  
+Total Bits 0->1 18    18      100.00  
+Total Bits 1->0 18    18      100.00  
+
+                          
+Ports          2 2 100.00 
+Port Bits      4 4 100.00 
+Port Bits 0->1 2 2 100.00 
+Port Bits 1->0 2 2 100.00 
+
+                              
+Signals          1  1  100.00 
+Signal Bits      32 32 100.00 
+Signal Bits 0->1 16 16 100.00 
+Signal Bits 1->0 16 16 100.00 
+
+Port Details
+    Toggle Toggle 1->0 Toggle 0->1 Direction 
+clk Yes    Yes         Yes         INPUT     
+rst Yes    Yes         Yes         INPUT     
+
+Signal Details
+              Toggle Toggle 1->0 Toggle 0->1 
+kpe_sum[15:0] Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.mon_if2
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 --     100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 --     100.00 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME   
+100.00 --     100.00 --     mon_if 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME   
+100.00 100.00 100.00 --     top_tb 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : top_tb
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/top_tb.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME   
+100.00 100.00 100.00 --     top_tb 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : top_tb
+
+             Line No.   Total   Covered  Percent
+TOTAL                       12       12   100.00
+INITIAL            15        6        6   100.00
+ALWAYS             39        2        2   100.00
+INITIAL            42        2        2   100.00
+INITIAL            48        1        1   100.00
+INITIAL            54        1        1   100.00
+
+14                          initial begin
+15         1/1                  clk = 0;
+16         1/1                  rst = 0;
+17         2/2                  #2 rst = 1;
+18         2/2                  #2 rst = 0;
+19                          end
+20                      /*
+21                          always@(posedge clk) begin
+22                              $display("@%0t: kpe_sum actual = %h",$time,mon_if2.kpe_sum);
+23                              $display("@%0t: dla_kpe1.kpe_sum = %h",$time,dla_kpe1.kpe_sum);
+24                              $display("@%0t: dla_kpe1.preg_acc = %h",$time,dla_kpe1.preg_acc);
+25                              $display("@%0t: dla_kpe1.preg_src_f = %h",$time,dla_kpe1.preg_src_f);
+26                              $display("@%0t: dla_kpe1.preg_mul = %h",$time,dla_kpe1.preg_mul);
+27                              $display("@%0t: dla_kpe1.kpe_mul_shift = %h",$time,dla_kpe1.kpe_mul_shift);
+28                              $display("@%0t: dla_kpe1.stgr_precision_kpe_shift = %h",$time,dla_kpe1.stgr_precision_kpe_shift);
+29                          end
+30                      */
+31                      
+32                          /*
+33                          always@(posedge clk) begin
+34                              $display("@%0t: dla_kpe1.preg_acc = %x\n",$time,dla_kpe1.preg_acc);
+35                              $display("@%0t: dla_kpe1.kpe_sum = %x\n",$time,dla_kpe1.kpe_sum);
+36                          end
+37                          */
+38                      
+39         2/2              always #1 clk = ~clk;
+40                      
+41                          initial begin
+42         1/1                  uvm_config_db#(virtual ini_if)::set(null,"uvm_test_top.env.i_agt.drv","ini_if1",ini_if2);
+43         1/1                  uvm_config_db#(virtual mon_if)::set(null,"uvm_test_top.env.o_agt.mon","mon_if1",mon_if2);
+44                          end
+45                      
+46                          initial begin
+47                              //$fsdbDumpfile("tb.fsdb");
+48         1/1                  $vcdpluson;
+49                              //$fsdbDumpvars();
+50                              //$fsdbDumpon();
+51                          end
+52                      
+53                          initial begin
+54         1/1                  run_test();
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : top_tb
+                Total Covered Percent 
+Totals          2     2       100.00  
+Total Bits      4     4       100.00  
+Total Bits 0->1 2     2       100.00  
+Total Bits 1->0 2     2       100.00  
+
+                            
+Signals          2 2 100.00 
+Signal Bits      4 4 100.00 
+Signal Bits 0->1 2 2 100.00 
+Signal Bits 1->0 2 2 100.00 
+
+Signal Details
+    Toggle Toggle 1->0 Toggle 0->1 
+clk Yes    Yes         Yes         
+rst Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+ 98.38 100.00  96.75 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME   
+100.00 100.00 100.00 --     top_tb 
+
+
+Parent : 
+
+none
+----------------
+
+
+Subtrees :
+
+SCORE  LINE   TOGGLE FSM    NAME     
+ 98.28 100.00  96.57 --     dla_kpe1 
+ 98.96 --      98.96 --     ini_if2  
+100.00 --     100.00 --     mon_if2  
+
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.
+===============================================================================
+Module : dla_kpe_acc
+===============================================================================
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+Source File(s) : 
+
+/home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/dla_kpe_acc.sv
+
+Module self-instances :
+
+SCORE  LINE   TOGGLE FSM    NAME                    
+100.00 100.00 100.00 --     top_tb.dla_kpe1.kpe_acc 
+
+
+
+-------------------------------------------------------------------------------
+Line Coverage for Module : dla_kpe_acc
+
+             Line No.   Total   Covered  Percent
+TOTAL                       10       10   100.00
+ALWAYS             43       10       10   100.00
+
+42                          always_comb begin
+43         1/1                  if (stgr_precision_ifmap == PRECISION_IFMAP_16) begin
+44         1/1                      if (t[23] ^ a[23] && a[23] == b[23]) begin
+45         1/1                          y = {a[23], {23{~ a[23]}}};
+46                                  end
+47                                  else begin
+48         1/1                          y = t;
+49                                  end
+50                              end
+51                              else begin
+52         1/1                      if (t[23] ^ a1[11] && a1[11] == b[23]) begin
+53         1/1                          y[23:12] =  {a1[11], {11{~ a1[11]}}};
+54                                  end
+55                                  else begin
+56         1/1                          y[23:12] = t[23:12];
+57                                  end
+58         1/1                      if (t[11] ^ a0[11] && a0[11] == b[11]) begin
+59         1/1                          y[11:0] =  {a0[11], {11{~ a0[11]}}};
+60                                  end
+61                                  else begin
+62         1/1                          y[11:0] = t[11:0];
+
+-------------------------------------------------------------------------------
+Toggle Coverage for Module : dla_kpe_acc
+                Total Covered Percent 
+Totals          10    10      100.00  
+Total Bits      292   292     100.00  
+Total Bits 0->1 146   146     100.00  
+Total Bits 1->0 146   146     100.00  
+
+                              
+Ports          4   4   100.00 
+Port Bits      146 146 100.00 
+Port Bits 0->1 73  73  100.00 
+Port Bits 1->0 73  73  100.00 
+
+                                
+Signals          6   6   100.00 
+Signal Bits      146 146 100.00 
+Signal Bits 0->1 73  73  100.00 
+Signal Bits 1->0 73  73  100.00 
+
+Port Details
+                     Toggle Toggle 1->0 Toggle 0->1 Direction 
+a[23:0]              Yes    Yes         Yes         INPUT     
+b[23:0]              Yes    Yes         Yes         INPUT     
+y[23:0]              Yes    Yes         Yes         OUTPUT    
+stgr_precision_ifmap Yes    Yes         Yes         INPUT     
+
+Signal Details
+         Toggle Toggle 1->0 Toggle 0->1 
+a1[11:0] Yes    Yes         Yes         
+a0[11:0] Yes    Yes         Yes         
+b1[11:0] Yes    Yes         Yes         
+b0[11:0] Yes    Yes         Yes         
+t[23:0]  Yes    Yes         Yes         
+carry    Yes    Yes         Yes         
+
+
+-------------------------------------------------------------------------------
+===============================================================================
+Module Instance : top_tb.dla_kpe1.kpe_acc
+===============================================================================
+
+Instance :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Instance's subtree :
+
+SCORE  LINE   TOGGLE FSM    
+100.00 100.00 100.00 --     
+
+
+Module : 
+
+SCORE  LINE   TOGGLE FSM    NAME        
+100.00 100.00 100.00 --     dla_kpe_acc 
+
+
+Parent : 
+
+SCORE  LINE   TOGGLE FSM    NAME     
+ 99.92 100.00  99.85 --     dla_kpe1 
+
+
+Subtrees :
+
+
+no children
+----------------
+
+
+-------------------------------------------------------------------------------
+Since this is the module's only instance, the coverage report is the same as for the module.

@@ -1,0 +1,28 @@
+Design Module List
+
+Total Module Definition Coverage Summary 
+SCORE  LINE   TOGGLE FSM    
+ 98.38 100.00  96.75 --     
+
+
+Total modules in report: 8
+-------------------------------------------------------------------------------
+SCORE              LINE     TOGGLE   FSM      NAME                                         
+ 92.86             100.00    85.71   --       dla_kpe_mul                                  
+ 98.96             --        98.96   --       ini_if                                       
+ 99.92             100.00    99.85   --       dla_kpe                                      
+100.00             100.00   100.00   --       dla_kpe_mul_round                            
+100.00             100.00   100.00   --       dla_vpsignsat                                
+                   
+  ---------------- 
+  SCORE              LINE     TOGGLE   FSM      NAME                                       
+  100.00             100.00   --       --       dla_vpsignsat                              
+  100.00             --       100.00   --       dla_vpsignsat ( parameter GRAN=12,SAT=4 )  
+  100.00             --       100.00   --       dla_vpsignsat ( parameter GRAN=8,SAT=4 )   
+                   
+----------------   
+SCORE              LINE     TOGGLE   FSM      NAME                                         
+100.00             --       100.00   --       mon_if                                       
+100.00             100.00   100.00   --       top_tb                                       
+100.00             100.00   100.00   --       dla_kpe_acc                                  
+

@@ -1,0 +1,33 @@
+Dashboard
+
+Date: Tue Jan 10 16:49:39 2023
+
+User: carl
+
+Version: O-2018.09-SP2
+Command line: urg -full64 -dir /home/carl/work/1projects/1In_CV/2cnn_module1/rtl/dla/comp/dla_kpe/simv.vdb -report coverage_report -format both
+Number of tests: 1
+
+-------------------------------------------------------------------------------
+Total Coverage Summary 
+SCORE  LINE   TOGGLE FSM    GROUP  
+ 98.92 100.00  96.75 --     100.00 
+
+
+-------------------------------------------------------------------------------
+Hierarchical coverage data for top-level instances 
+SCORE  LINE   TOGGLE FSM    NAME   
+ 98.38 100.00  96.75 --     top_tb 
+
+
+-------------------------------------------------------------------------------
+Total Module Definition Coverage Summary 
+SCORE  LINE   TOGGLE FSM    
+ 98.38 100.00  96.75 --     
+
+
+-------------------------------------------------------------------------------
+Total Groups Coverage Summary 
+SCORE  WEIGHT 
+100.00 1      
+
